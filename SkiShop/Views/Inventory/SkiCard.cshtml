@@ -1,0 +1,16 @@
+﻿@model SkiShop.Models.SkiModel
+
+<div class="card">
+    <div class="card-header">
+        Product Details
+    </div>
+    <div class="card-body">
+        <p>Id: @Model.Id</p>
+        <p>Price: @Model.Price</p>
+        <p>Length: @Model.Length</p>
+        <p>Width: @Model.Width</p>
+        <p>Condition: @Model.Condition</p>
+        <p>Brand: @Model.Brand</p>
+        <img src="@Model.Image" alt="@Model.Brand Ski" />
+    </div>
+</div>
