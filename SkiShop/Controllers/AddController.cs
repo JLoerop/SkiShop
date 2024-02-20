@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SkiShop.Models;
+using SkiShop.Services;
 
 namespace SkiShop.Controllers
 {
@@ -7,6 +9,12 @@ namespace SkiShop.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+        public IActionResult Add(InventoryModel product)
+        {
+            SkiService skiService = new SkiService();
+            skiService.InsertSki(product);
+            return View("Success");
         }
     }
 }

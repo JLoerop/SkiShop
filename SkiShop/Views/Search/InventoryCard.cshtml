@@ -1,0 +1,17 @@
+﻿@model SkiShop.Models.InventoryModel
+
+<div class="card">
+    <div class="card-header">
+        Product Details
+    </div>
+    <div class="card-body">
+        <p>Id: @Model.Id | Price: @Model.Price</p>
+        <p>Length: @Model.Length | Width: @Model.Width</p>
+        <p>Condition: @Model.Condition | Brand: @Model.Brand</p>
+        <p>Type: @Model.Type</p>
+        <img width="250" height="300" src="@Model.Image" alt="@Model.Brand Ski" />
+        <br />
+        <a href="/inventory/Delete/@Model.Id" class="btn btn-danger">Delete</a>
+        <a href="/inventory/Update/@Model.Id" class="btn btn-warning">Update</a>
+    </div>
+</div>
