@@ -1,5 +1,6 @@
 ﻿namespace SkiShop.Models
 {
+    // main model for all of the skis and snowboard that is used throughout the program
     public class InventoryModel
     {
         public int Id { get; set; }

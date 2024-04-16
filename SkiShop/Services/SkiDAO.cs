@@ -6,8 +6,9 @@ namespace SkiShop.Services
 {
     public class SkiDAO
     {
-        String connectionString = "datasource=localhost;port=3306;username=root;password=root;database=skishop";
-
+        //connection string to connect to cloud database
+        String connectionString = "Server=\"skishop.mysql.database.azure.com\";UserID = \"jloerop\";Password=\"Rsds#077\";Database=\"skishop\";SslMode=Required;SslCa=\"{path_to_CA_cert}\";";
+        //method to get inventory from the database
         public List<InventoryModel> getInventory()
         {
             List<InventoryModel> inventory = new List<InventoryModel>();
@@ -34,6 +35,7 @@ namespace SkiShop.Services
             }
             return inventory;
         }
+        // method to insert a new ski/snowboard into the database
         public bool InsertSki(InventoryModel inventory)
         {
             string sqlStatement = "INSERT INTO `inventory`(`price`, `length`, `width`, `condition`, `brand`, `type`, `image`) VALUES (@price,@length,@width,@condition,@brand,@type,@image)";
@@ -56,6 +58,7 @@ namespace SkiShop.Services
                 return rowsAffected > 0;
             }
         }
+        // method to delete a item from the database
         public bool Delete(int id)
         {
             bool success = false;
@@ -82,6 +85,7 @@ namespace SkiShop.Services
             }
             return success;
         }
+        // method to get product by a certain id from the database
         public InventoryModel GetProductById(int id)
         {
             InventoryModel foundProduct = null;
@@ -109,6 +113,7 @@ namespace SkiShop.Services
             }
             return foundProduct;
         }
+        // method to update a certain product by id from the database
         public int Update(InventoryModel inventory)
         {
             int newIdNumber = -1;
@@ -138,6 +143,7 @@ namespace SkiShop.Services
                 return newIdNumber;
             }
         }
+        //method that will search the database and return the results from the database
         public List<InventoryModel> SearchProducts(string searchTerm)
         {
             List<InventoryModel> foundProducts = new List<InventoryModel>();
